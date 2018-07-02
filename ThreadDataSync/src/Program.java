@@ -1,5 +1,8 @@
 import static java.lang.System.out;
 
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.LongAdder;
+
 class Sync
 {
 	private volatile int counter=0;
@@ -27,6 +30,8 @@ public class Program {
 		Sync sync=new Sync();
 		//sync.getClass() для статических синхронных методов
 		
+		AtomicInteger c = new AtomicInteger(); // Правильный способ задания счетчика
+		LongAdder adder = new LongAdder();
 		
 		 final Thread t0 = new Thread(() -> {
 			for(int i=1; i<=10000;i++) {
@@ -36,6 +41,8 @@ public class Program {
 						sync.counter++;
 					}*/
 					sync.increment();
+					c.incrementAndGet();
+					adder.add(i);
 			}
 		 });
 		 
@@ -47,6 +54,8 @@ public class Program {
 						sync.counter++;
 					}*/
 					sync.increment();
+					c.incrementAndGet();
+					adder.add(i);
 			}
 		 });
 		 
@@ -58,6 +67,8 @@ public class Program {
 		 
 		 //out.println(sync.counter);
 		 out.println(sync.getCounter());
+		 out.println(c.get());
+		 out.println(adder.sum());
 	}
 
 }

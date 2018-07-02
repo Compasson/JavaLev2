@@ -1,0 +1,66 @@
+Более мощные технологии управления потоками
+	java.util.concurrent пакет
+		Например(пакет Atomic):
+			счетчик AtomicInteger
+			сумматор DoubleAdder
+			аккумулятор DoubleAccumulator (можно передать функцию в виде лямда выражения и задать * / - и другие )
+		
+		Например:(пакет locks)
+			Lock - интерфейс, 
+				методы 
+				lock(), 
+				unlock(), 
+				lockInterruptibility() - позволяет разбудить поток вызовом методом ibntrrrupt() снаружи
+				tryLock - попытка блокировки
+				tryLock(milisecond, TimeUnit) timeout
+				newCondition() - 
+				
+			Lock lock = new RentrantLock();
+			while(!lock.tryLock(1,TimeUnit.MILLISECONDS))){}
+			
+			Если много потоков но будить надо только определенный,то 
+				использумем интерфейсы Condition и Lock
+			Condition - интерфейс(сигнал, условие)
+				await()
+				signal()
+				
+			Интерфейс readWriteLock 
+				Если 99 потоков читают данные, то
+					синхронизацию на чтение можно опустить с помощью интерфейса readWriteLock
+				
+				Получается 3 вида возможных вариантов:
+				R R   - чтение, чтение без синхронизации
+				R W s - чтение, запись с синхронизацией
+				W W s - запись, запсиь с синхронизацией
+					
+				Например:
+					ReadWriteLock lock new ReentrantLock();
+					Lock lockRead =lock.readLock();
+					Lock lockWrite = lock.writeLock();
+					
+					
+	Пулы потоков (для удобного создания потока) - динамический набор потоков, куда можно отправлять задачи
+		Задачи и создание потока разделяется
+	 	 Интерфейс ExecutorService
+	 	 		Future 			submit(Runnable task) - передается задача, поток напрямую не доступен
+	 	 		List<Future>	invoke(Collection<...>)
+	 	 		shotdown() - завершает добавление новых задач(но текущие задачи продолжают выполняться. Как только все задаччи выполнены - все потоки уничтожаются)
+	 	boulean	isShotdown() - проверяет,что с shotdown
+	 	 				
+	 	 Интерфейс Future<T> - эго методы осуществляют доступ к задаче
+	 	 		get() - возвращает результат
+	 	 		isDone - завешилась ли задача
+	 	 		cancel(bolean ...)
+	 	 
+	 	 Интерфейс Callable<T> - аналог Runnable
+	 	 		Может кидать exceptions 
+	 	 		
+	 	 РЕАЛИЗАЦИЯ пулов потоков:
+	 	 	class Executor
+	 	 		executorService()
+	 	 		newFixedThreadPool(int ..) статический пул
+	 	 		newCashThreadPool() - динамический пул, если за 60 секунд задач нет, то он уничтожает те потоки которые 60 секунд ничего не делали
+	 	 		
+	 	 Окончание 1:42:19 
+	 	 		
+	 	 
