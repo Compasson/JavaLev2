@@ -1,4 +1,4 @@
-//---------------Почему-то не работает 
+//---------------Почему-то не работает ???
 public class Program {
 
 	public static void main(String[] args) throws InterruptedException {
