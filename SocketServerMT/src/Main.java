@@ -1,4 +1,4 @@
-package server;
+
 
 import static java.lang.System.out;
 
@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 // Видео Day2 19:01
 
-public class ServerMain {
+public class Main {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
