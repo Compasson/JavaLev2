@@ -43,7 +43,11 @@ Day 4
 		SWT (Eclipse library)
 	
 	
-	AWT (Window : Frame or Dilog)	
+	AWT (Window : Frame or Dilog)
+		В файл module-info.java нужно добавить:
+			module AwtHello20 {
+				requires java.desktop;
+			}	
 	
 	
 	JAVA FX
