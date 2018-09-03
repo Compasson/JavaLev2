@@ -21,7 +21,7 @@ public class Program {
 		
 		
 		//Query query = em.createQuery("SELECT e FROM Courses e ");// Строка на JPQL языке к сущьностям поверх класс
-		Query query = em.createQuery("SELECT e FROM Courses e WHERE e.title LIKE :search");// Строка на JPA языке к сущьностям поверх класса
+		Query query = em.createQuery("SELECT e FROM Courses e WHERE e.title LIKE :search");// Строка на JPQL языке к сущьностям поверх класса
 		
 		// Можно параметризированные запросы
 		query.setParameter("search", "%"+search+"%");//Первый это тип параметра, второй это строка которую ввел пользователь
