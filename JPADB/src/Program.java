@@ -36,9 +36,9 @@ public class Program {
 		// Add course
 		em.getTransaction().begin(); //Начало коммита
 		Courses c = new Courses();
-		c.setTitle("Java 1");
+		c.setTitle("Ноый курс");
 		c.setLength(40);
-		c.setDescription("Java intro");
+		c.setDescription("все новое");
 		em.persist(c);
 		em.getTransaction().commit();// Конец коммита
 		

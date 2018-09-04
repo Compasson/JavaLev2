@@ -1,0 +1,45 @@
+Базы данных:
+		SQL = DDL(схема базы данных) + DML(select,update,delete) + DCL(разрещение доступа)
+		
+		Oracle
+		MS SQL Server
+		MySQL
+		
+		LAMP Linux Apache MySQL PHP - 80% Web серверов работают по этой схеме
+		
+	Разворачиваем:
+		MySQL
+			Add Firewall exception for this port
+			Charset: utf8
+				root
+					password: demo
+				enable root accept from remove ...
+				
+		Оконная утилита WorkBanch
+			Настрокйка шрифта edit/preference/appirance/editor/Consolas 16
+			Create Schema . Set as default schema
+			Open SQL script / execut
+			
+		Скрипт Файл.sql - наша
+		
+	Ключи связи(первичный и внешнитй ключ):
+		1:1
+		1:M - связь 1 ко многим
+		M:M
+		
+	Операторы(Потренировать обьединения)
+	SELECT
+	INNER JOIN
+	INSERT INTO
+	UPDATE ... SET ... WHERE
+	DELETE FROM ... WHERE
+	
+	Взаимодействие JAVA с MySQL:
+		JDBC - библиотека использует драйвера
+		JDBC Driver Maneger - регистрирет драйвер и позволяет установить соедиение
+		
+		Пакет java.sql
+			Интерфесы:
+					Connection
+					ResultSet
+		

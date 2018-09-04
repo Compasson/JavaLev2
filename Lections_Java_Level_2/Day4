@@ -17,15 +17,14 @@ Day 4
 				option
 						
 						
-		классы моделей JPA Entities from tables
+		классы моделей (правой кнопкой на проекте\туц\ JPA Entities from tables)
 			
 			Entity сущности
-			
+		
+		BuildPath\AddLibrari\	Через ConnectivitiLibrary создать подключение (для выбора)
 			
 		Далее делаем фабрику сущностей EntityManager
 		
-			Добавить путь build path 
-			Через ConnectivitiLibrary создать подключение (для выбора)
 			
 		Далее эксперементируем с сущностями
 		
